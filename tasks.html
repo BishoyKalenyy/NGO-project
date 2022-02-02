@@ -1,0 +1,36 @@
+
+{% block content %}
+
+{% if Task %}
+{% for task in Task %}
+      <div class="proin">
+        <div class="inone">
+      <div >
+        <a href="{% url 'task_description' %}">{{task.Task}}</a>
+      </div>
+
+      {% comment %} <div style="font-size:15px;color: black;">
+        A task from <div class="protag"><a style="text-decoration: none;" href="{%url 'Portal:project_description' job.project.id %}">{{job.project.project_name}}</a></div> Project
+      </div> {% endcomment %}
+
+      <div style="color: black;font-size:15px;">
+        Added On     {{task.addedOn}}
+      </div>
+    </div>
+
+    <div class="intwo">
+      <div class="inpt">
+        {% if task.credits == 'Paid' %}
+          {{task.amount}}
+        {% else %}
+         {{task.mention}}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endfor %}
+{% else %}
+<h3>No jobs available!!</h3>
+{% endif %}
+
+{% endblock %}

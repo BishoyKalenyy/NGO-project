@@ -1,0 +1,162 @@
+
+{% block content %}
+
+{% for task in Task %}
+
+
+
+         <div>           
+        <a href="{% url 'task_description' %}">{{task.Task}}</a>
+         </div>
+{% endfor %}
+      
+
+
+				
+	{% comment %} <div class="ou">
+
+
+		<div class="ouright">
+			<br>
+			<br>
+			<div class="situation">
+				<div class="currentWorkingStatus">
+					<div id="appimg" >
+					</div><br>
+					<center> 
+						<div class="styled-select">
+						<select name="credits" onchange="filter()">
+							<option value="Both" selected>Both type</option>
+							<option value="Paid">Paid</option>
+							<option value="Other">Other</option>
+						</select>
+						</div>
+					</center><br>
+				</div>
+				<br>
+				
+
+					<div class="prjt1">
+						{% comment %} {% for skill in skill_list %}
+						<input type="checkbox" onclick="filter()" name="skills[]" value="{{skill.skills}}">
+						<span style="padding-left:20px;">{{skill.skills}}</span>
+						<br>
+						{% endfor %} {% endcomment %}
+
+					{% comment %} </div>
+
+
+				</div>
+				<br>
+				<div class="currentWorkingStatus">
+					<div id="appimg" style="overflow: hidden; text-align: center; background-color: #213875; padding: 10px;">
+						<img id="lowa"src="/media/icons/translator.png"/>
+					</div>
+
+					<div class="prjt2" style="text-align: left; height: auto; max-height: 30vh; overflow-y: scroll; padding: 10px;">
+						
+					</div>
+
+				</div>
+
+			</div>
+
+
+		</div>
+
+		<div class="mid">
+		</div>
+
+		<div class="ouleft">
+			<br>
+			<div>
+				<h3>
+					<b>Jobs</b>
+				</h3>
+			</div>
+			<br>
+			<div class="projectContainer" id="jobs"> {% endcomment %}
+                {% comment %} {% if Task %} {% endcomment %}
+{% comment %} {% for task in Task %}
+
+                    <div class="proin">
+                    <div class="inone">
+      <div >
+        <a href="{% url 'task_description' %}">{{task.Task}}</a>
+      </div> {% endcomment %}
+
+      {% comment %} <div style="font-size:15px;color: black;">
+        A task from <div class="protag"><a style="text-decoration: none;" href="{%url 'Portal:project_description' job.project.id %}">{{job.project.project_name}}</a></div> Project
+      </div> {% endcomment %}
+{% comment %} 
+      <div style="color: black;font-size:15px;">
+        Added On     {{task.addedOn}}
+      </div>
+    </div>
+
+    <div class="intwo">
+      <div class="inpt">
+        
+      </div>
+    </div>
+  </div>
+{% endfor %} {% endcomment %}
+{% comment %} {% else %}
+<h3>No jobs available!!</h3>
+{% endif %} {% endcomment %}
+
+				{% comment %} {% include 'tasks.html' %} {% endcomment %}
+			{% comment %} </div>
+		</div>
+
+	</div> {% endcomment %}
+
+
+
+
+</body>
+{% comment %} {% if skill_check %}
+	<script type="text/javascript">
+		var x="skill_"+{{skill_check}};
+		document.getElementById(x).checked=true;
+		filter();
+	</script>
+{% endif %}
+
+<script>
+
+	$('#back').click(function goBack() {
+		window.history.back();
+	});
+
+	function filter() {
+
+		var skills = []
+		$("input[name='skills[]']:checked").each(function () {
+			skills.push($(this).val());
+		});
+
+		var languages = $("input[name='languages[]']:checked").map(function () {
+			return this.value;
+		}).get();
+
+		var credits = $("select[name='credits']").val();
+
+		
+		});
+
+	}
+
+	function arraysEqual(arr1, arr2) {
+		if (arr1.length !== arr2.length)
+			return false;
+		for (var i = arr1.length; i--;) {
+			if (arr1[i] !== arr2[i])
+				return false;
+		}
+
+		return true;
+	}
+
+</script> {% endcomment %} 
+{% endblock %}
